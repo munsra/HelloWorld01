@@ -4,7 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import org.example.helloworld01.ui.presentation.screens.HomePage
+import androidx.navigation.compose.rememberNavController
+import org.example.helloworld01.ui.presentation.navigation.Navigation
 import org.example.helloworld01.ui.theme.myThemes.HelloWorld01Theme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             HelloWorld01Theme {
-                HomePage()
+                Navigation()
             }
         }
     }
