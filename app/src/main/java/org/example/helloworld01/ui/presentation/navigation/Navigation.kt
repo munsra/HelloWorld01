@@ -1,30 +1,27 @@
 package org.example.helloworld01.ui.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import org.example.helloworld01.ui.presentation.screens.HomePage
-import org.example.helloworld01.ui.presentation.screens.MainPage
+import org.example.helloworld01.ui.presentation.screens.mainpage.MainPage
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = "Home"
+        startDestination = Route.MAIN_PAGE
     ) {
-        composable(route = "Home") {
+        composable(route = Route.HOME_PAGE) {
             HomePage(
                 onNextPage = {
-                    navController.navigate("MainPage")
+                    navController.navigate(Route.MAIN_PAGE)
                 }
             )
         }
-        composable(route = "MainPage") {
+        composable(route = Route.MAIN_PAGE) {
             MainPage()
         }
     }

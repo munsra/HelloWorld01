@@ -38,12 +38,6 @@ fun HomePage(
                 }
             )
         },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = {},
-                containerColor = Color.Red
-            ) { }
-        },
         modifier = Modifier.fillMaxSize(),
     ) {
         Box(modifier = Modifier.padding(it)){
