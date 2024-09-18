@@ -1,6 +1,5 @@
 package org.example.helloworld01.ui.presentation.screens.mainpage
 
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,34 +21,48 @@ import org.example.helloworld01.ui.theme.myThemes.HelloWorld01Theme
 fun MainPage(
     viewModel: MainPageViewModel = viewModel()
 ) {
+
+
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize().padding(it),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Text(
-                viewModel.counter.toString(),
-                style = TextStyle(
-                    fontSize = 36.sp
-                ),
-            )
-            Row {
-                Button(
-                    onClick = {
-                        viewModel.inc()
+        Row(
+            modifier = Modifier.padding(it).fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ){
+            // 1 Colonna. Counter + Bottoni increase e decrease
+            Column {
+                Text(
+                    viewModel.counter.toString(),
+                    style = TextStyle(
+                        fontSize = 36.sp
+                    ),
+                )
+                Row {
+                    Button(
+                        onClick = {
+                            viewModel.inc()
+                        }
+                    ) {
+                        Text("+")
                     }
-                ) {
-                    Text("+")
+                    Button(
+                        onClick = {
+                            viewModel.dec()
+                        }
+                    ) {
+                        Text("-")
+                    }
                 }
-                Button(
-                    onClick = {
-                        viewModel.dec()
-                    }
-                ) {
-                    Text("-")
+            }
+
+            // Lista Eventi
+            Column {
+                Text("Lista Events")
+
+                viewModel.events.forEach {
+                    Text(it)
                 }
             }
         }
