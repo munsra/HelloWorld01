@@ -13,7 +13,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Route.HOME_PAGE
+        startDestination = Route.MAIN_PAGE
     ) {
         composable(route = Route.HOME_PAGE) {
             HomePage(
